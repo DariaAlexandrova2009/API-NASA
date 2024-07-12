@@ -6,8 +6,8 @@ import logging
 from supporting_scripts import DIRECTORY, download_file
 
 
-def fetch_spacex_last_launch(lounch_id):
-    response = requests.get(f'https://api.spacexdata.com/v5/launches/{lounch_id}')
+def fetch_spacex_last_launch(launch_id):
+    response = requests.get(f'https://api.spacexdata.com/v5/launches/{launch_id}')
     response.raise_for_status()
     photos_urls = response.json()['links']['flickr']['original']
     if not photos_urls:
