@@ -5,7 +5,7 @@ import datetime
 from dotenv import load_dotenv
 from supporting_scripts import DIRECTORY, download_file
 
-def get_epic_photo(nasa_token):
+def get_epic_photos(nasa_token):
     payload = {
         'api_key': nasa_token
         }
@@ -25,4 +25,4 @@ if __name__=='__main__':
     load_dotenv()
     nasa_token = os.environ['NASA_TOKEN']
     Path(DIRECTORY).mkdir(parents=True,exist_ok=True)
-    get_epic_photo(nasa_token)
+    get_epic_photos(nasa_token)
