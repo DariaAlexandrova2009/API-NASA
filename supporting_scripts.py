@@ -4,6 +4,7 @@ import urllib.request
 import urllib.parse
 
 DIRECTORY = 'images'
+PHOTO_AMOUNT = 30
 
 
 def download_file(url, params, path):
@@ -21,3 +22,6 @@ def get_file_extension(file_url):
     return file_extension
 
 
+def send_file(path,bot,tg_chat_id):
+    with open(path, 'rb') as file:
+        bot.send_document(chat_id=tg_chat_id, document=file)
