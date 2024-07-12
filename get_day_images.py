@@ -2,13 +2,13 @@ from pathlib import Path
 import requests
 import os
 from dotenv import load_dotenv
-from supporting_scripts import DIRECTORY,get_file_extension,download_file
+from supporting_scripts import DIRECTORY,get_file_extension,download_file, PHOTO_AMOUNT
 
 
 def get_apod(nasa_token):
     params = {
         'api_key': nasa_token, 
-        'count': 30
+        'count': PHOTO_AMOUNT
     }
     response = requests.get('https://api.nasa.gov/planetary/apod', params=params)
     response.raise_for_status()
