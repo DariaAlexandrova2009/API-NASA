@@ -10,7 +10,7 @@ import argparse
 
 if __name__=='__main__':
     load_dotenv()
-    token = os.environ['TOKEN']
+    token = os.environ['TG_BOT_TOKEN']
     tg_chat_id = os.environ['TG_CHAT_ID']
     bot = telegram.Bot(token=token)
     files = os.listdir(DIRECTORY)
