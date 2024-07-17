@@ -19,7 +19,7 @@ def get_apod(nasa_token):
             path = os.path.join(
                 DIRECTORY,
                 f"image_nasa_{photo_number}{extension}"
-                )
+            )
             download_file(photo["url"], params, path)
 
 

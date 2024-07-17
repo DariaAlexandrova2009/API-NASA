@@ -8,7 +8,7 @@ from supporting_scripts import DIRECTORY, download_file
 def get_epic_photos(nasa_token):
     payload = {
         'api_key': nasa_token
-        }
+    }
     response = requests.get('https://api.nasa.gov/EPIC/api/natural/images', params=payload)
     response.raise_for_status()
     images = response.json()
