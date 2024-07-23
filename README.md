@@ -1,11 +1,44 @@
-Space Telegram
-This project takes photoes from NASA API and SpaseX API and then it publics these photoes to Telegram Channel automatiсcally.
+# Отправляем фотографии космоса в Telegram
+Это модули, которые скачивают, а потом отправляю фотографии космоса в Telegram-канал
 
-How to install
-If you want to use this project, you need to have telegram bot and id of telegram bot, telegram channel and id of this channel, also you need NASA API key.
+### Как установить
+1. Создайте файл .env и добавьте токен, полученный из [Nasa](https://www.nasa.gov/). Также добавьте токен Вашего бота и ID канала, куда бот будет отправлять картинки. Вот пример:
+```
+NASA_TOKEN=[Ваш Nasa токен]
+TG_BOT_TOKEN=[Токен бота]
+TG_CHAT_ID=[ID канала]
+```
 
-Python3 should be already installed. Then use pip (or pip3, if there is a conflict with Python2) to install dependencies:
-
+2. Python3 должен быть уже установлен.
+Затем используйте `pip` (или `pip3`, есть конфликт с Python2) для установки зависимостей:
+```
 pip install -r requirements.txt
-Project Goals
-The code is written for educational purposes on online-course for web-developers dvmn.org.
+```
+
+
+### Как запустить
+1. Скачайте картинки
+* Скачиваем фотографии Земли из космоса:
+```
+python ./get_epic_images.py 
+```
+* Скачиваем фотографии про космос, которые сегодня популярны:
+```
+python ./get_day_images.py
+```
+* Скачиваем фотографии с запуска ракет SpaceX(параметром -i указываем ID запуска, а если он не указан, то скачиваются фотографии последнего запуска):
+```
+python ./fetch_spacex_images.py -i 5eb87d47ffd86e000604b38a
+```
+
+2. Запускаем бота
+* Можно оправить все фотографии из images с задержкой(можем указать в параметре -d задержку между фотографиями, а если не указана, то используются данные из .env):
+```
+python ./tg_bot.py -d 5
+```
+* Можно отправить один файл из images(Можно указать параметр -p: название фотографии, а если параметр не указан, то выберется случайная фотография и тоже отправится):
+```
+python ./publish_photo.py -p test.jpg
+```
+### Цель проекта
+Код написан в образовательных целях на онлайн-курсе для веб-разработчиков [dvmn.org](https://dvmn.org/).
