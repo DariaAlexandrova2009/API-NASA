@@ -1,6 +1,4 @@
 import telegram
-from telegram.ext import Updater
-import urllib3
 import time
 import random
 import os
